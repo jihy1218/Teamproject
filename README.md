@@ -5,7 +5,8 @@
 
 ![image](https://user-images.githubusercontent.com/91596526/138248008-df6503e8-52fc-4355-8f12-83579e566550.png)
 
-
+## 프로젝트 기간
+### ~10/27
 
 ## 역할분담
 ### AdminController : 이혁
