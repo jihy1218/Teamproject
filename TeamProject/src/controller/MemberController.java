@@ -10,7 +10,7 @@ public class MemberController { 	// 동진
 	// 필드
 	ArrayList<Member> memberlist = new ArrayList<>();
 	// 메소드
-	public static boolean m_login() {
+	public static boolean m_login(String name , int phone) {
 		return true;
 	}
 	public static boolean select() {
