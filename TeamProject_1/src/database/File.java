@@ -23,7 +23,7 @@ public class File {
 		//반복문 이용 비회원에서 하나씩 회원 가져오기
 		for(Member member : MemberController.memberlist) {
 		//각 회원마다 이용한 회원리스트에서 하나씩 회원 가져오기
-			
+		String	
 			
 		}
 		}

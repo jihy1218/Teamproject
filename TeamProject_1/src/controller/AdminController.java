@@ -3,7 +3,7 @@ package controller;
 import java.util.ArrayList;
 import model.Vaccine;
 
-public class AdminController { // Çõ
+public class AdminController implements VeccineList { // Çõ
 
 //	ÇÊµå : ArrayList<Vaccine> vaccinelist
 //	¸Þ¼Òµå : login, register, update , v_list
@@ -19,6 +19,9 @@ public class AdminController { // Çõ
 		}
 		return false; // °ü¸®ÀÚ ·Î±×ÀÎ½ÇÆÐ½Ã
 	}
+
+	
+	
 	public static boolean register() {
 		return true;
 	}
@@ -28,6 +31,7 @@ public class AdminController { // Çõ
 	public static boolean v_list() {
 		return true;
 	}
+	
 	
 	
 }
