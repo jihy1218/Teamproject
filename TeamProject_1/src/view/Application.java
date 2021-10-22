@@ -18,34 +18,24 @@ public class Application {
 		while (true) {
 			try {
 				System.out.println("=======코로나 잔여백신 예약프로그램==========");
-				System.out.println("1.비회원로그인|2.관리자로그인");
-				System.out.println("=======================================");
-				System.out.print("선택 : ");
-				int ch = scanner.nextInt();
-				if (ch == 1) {
-					System.out.println("이름을입력하세요 : ");
-					String name = scanner.next();
-					System.out.println("전화번호를 입력하세요 : ");
-					int phone = scanner.nextInt();
-
-					boolean result = MemberController.m_login(name , phone);
-						if(result) {
-							System.out.println("[알림] : 로그인성공");
-							membermenu(name, phone);	
-						}
-				} else if (ch == 2) {
-					System.out.println("관리자코드를 입력하세요 : ");
-					String Code = scanner.next();
-					boolean result = AdminController.login(Code);
-						if(result) { 
-							adminmenu();	
-						}
-						else { System.out.println("알수없는 입력입니다.");
-						}
-				} else {
-					System.out.println("[[알림]] : 잘못된입력입니다. [관리자에게문의]");
+				System.out.println("이름을입력하세요 : ");
+				String name = scanner.next();
+				System.out.println("전화번호를 입력하세요 : ");
+				String phone = scanner.next();
+				String check = MemberController.m_login(name, phone);
+				
+				if (check.equals("예약자")) {
+					System.out.println("[알림] : 로그인성공");
+					membermenu(name, phone);
+				}if (check.equals("admin")) {
+					System.out.println("관리자");
+					adminmenu();
 				}
-			} catch (Exception e) {
+				
+			
+			}
+			 catch (Exception e) {
+				 
 				System.out.println("[[알림]] : 메뉴 페이지 오류[ 관리자에게 문의 ] ");
 				scanner = new Scanner(System.in); // 입력객체 초기화
 			}
@@ -53,29 +43,31 @@ public class Application {
 	}
 
 	// 예약자 메뉴
-	public static void membermenu(String id, int phone) {
+	public static void membermenu(String id, String phone) {
 		while(true) {
-			System.out.println("=====================예약자메뉴=======================");
-			System.out.println("1.잔여백신종류확인|2.잔여백신선택|3.잔여백신신청확인|4.잔여백신신청취소");
-			System.out.println("====================================================");
+			System.out.println("=========================예약자메뉴============================");
+			System.out.println("1.잔여백신확인|2.잔여백신선택|3.잔여백신신청확인|4.잔여백신신청취소|5.로그아웃");
+			System.out.println("===========================================================");
 			System.err.print(">>선택 : "); int ch = scanner.nextInt();
-			if(ch==1) {
+			if(ch==1) {	// 잔여백신확인 전체리스트가 나와야함 처음에는 비어있을수있음
 				
 			}
-			else if(ch==2) {
-				
+			else if(ch==2) { // 선택하기
+				MemberController.select();
 			}
-			else if(ch==3) {
-				
+			else if(ch==3) { // 신청확인
+				MemberController.check();
 			}
-			else if(ch==4) {
-				
+			else if(ch==4) { // 신청취소
+				MemberController.cancel();
+			}
+			else if(ch==5) {
+				return;
 			}
 			else {
 				System.out.println("[[알림]] : 잘못된입력입니다. [관리자에게문의]");
 			}
 		}
-		
 	}
 
 	// 관리자 메뉴
@@ -85,14 +77,14 @@ public class Application {
 			System.out.println("1.잔여백신등록|2.잔여백신등록취소|3.잔여백신재고확인");
 			System.out.println("======================================");
 			System.out.print(">>선택 : "); int ch = scanner.nextInt();
-			if(ch==1) {
-				
+			if(ch==1) { // 등록
+				AdminController.register();
 			}
-			else if(ch==2) {
-				
+			else if(ch==2) { // 등록취소
+				AdminController.update();
 			}
-			else if(ch==3) {
-				
+			else if(ch==3) { // 등록 리스트 확인
+				AdminController.v_list();
 			}
 			else { System.out.println("[[알림]] : 잘못된입력입니다. [관리자에게문의]");
 					

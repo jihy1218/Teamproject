@@ -10,12 +10,20 @@ public class MemberController { 	// 동진
 	// 필드
 	public static ArrayList<Member> memberlist = new ArrayList<>();
 	// 메소드
-	public static boolean m_login(String name , int phone) {
-		return true;
+	public static String m_login(String name , String phone) {
+		if(name.equals("admin")&& phone.equals("12345678910")) {
+			return "admin";
+			
+		}else {
+		return "예약자";  }
 	}
 	public static boolean select() {
 		return true;
 	}
+	public static boolean check() {
+		return true;
+	}
+	
 	public static boolean cancel() {
 		return true;
 	}
