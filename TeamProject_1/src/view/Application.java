@@ -55,8 +55,25 @@ public class Application {
 	// 예약자 메뉴
 	public static void membermenu(String id, int phone) {
 		while(true) {
-			System.out.println("=============예약자메뉴==============");
-			System.out.println("");
+			System.out.println("=====================예약자메뉴=======================");
+			System.out.println("1.잔여백신종류확인|2.잔여백신선택|3.잔여백신신청확인|4.잔여백신신청취소");
+			System.out.println("====================================================");
+			System.err.print(">>선택 : "); int ch = scanner.nextInt();
+			if(ch==1) {
+				
+			}
+			else if(ch==2) {
+				
+			}
+			else if(ch==3) {
+				
+			}
+			else if(ch==4) {
+				
+			}
+			else {
+				System.out.println("[[알림]] : 잘못된입력입니다. [관리자에게문의]");
+			}
 		}
 		
 	}
