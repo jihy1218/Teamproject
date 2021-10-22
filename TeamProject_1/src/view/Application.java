@@ -12,7 +12,7 @@ public class Application {
 	public static void main(String[] args) { //
 
 		mainmenu(); // 메인 메뉴 메소드 호출
-	}
+	} 
 
 	public static void mainmenu() {
 		while (true) {
