@@ -9,17 +9,21 @@ public class Member {
 	// 필드
 	private String name;
 	private int phone;
+	private String vaccinename;
 	private String area;
+	
 	
 	// 생성자
 	public Member() {}
 
 	
-	public Member(String name, int phone, String area) {
+	public Member(String name, int phone, String vaccinename, String area ) {
 	
 		this.name = name;
 		this.phone = phone;
+		this.vaccinename = vaccinename;
 		this.area = area;
+		
 	}
 
 	
@@ -30,7 +34,9 @@ public class Member {
 	public int getPhone() {return phone;}
 	public void setPhone(int phone) {this.phone = phone;}
 	public String getArea() {return area;}
-	public void setArea(String area) {this.area = area;}	
+	public void setArea(String area) {this.area = area;}
+	public String getVaccinename() {return vaccinename;}
+	public void setVaccinename(String vaccinename) {this.vaccinename = vaccinename;}	
 	
 	
 }
