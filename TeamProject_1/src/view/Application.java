@@ -54,7 +54,11 @@ public class Application {
 
 	// 예약자 메뉴
 	public static void membermenu(String id, int phone) {
-
+		while(true) {
+			System.out.println("=============예약자메뉴==============");
+			System.out.println("");
+		}
+		
 	}
 
 	// 관리자 메뉴
