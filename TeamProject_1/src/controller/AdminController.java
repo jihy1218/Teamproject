@@ -7,7 +7,7 @@ public class AdminController { // 혁
 
 //	필드 : ArrayList<Vaccine> vaccinelist
 //	메소드 : login, register, update , v_list
-	
+	//좋아요
 	// 필드
 	static ArrayList<Vaccine> vaccinList = new ArrayList<>();
 	
