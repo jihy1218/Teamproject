@@ -12,7 +12,7 @@ public class AdminController { // Çõ
 	static ArrayList<Vaccine> vaccinList = new ArrayList<>();
 	
 	// ¸Þ¼Òµå
-	public static boolean login() {
+	public static boolean login(String code) {
 		return true;
 	}
 	public static boolean register() {
