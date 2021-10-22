@@ -29,13 +29,16 @@ public class Application {
 					int phone = scanner.nextInt();
 
 					boolean result = MemberController.m_login(name , phone);
-						if(result) membermenu(name, phone);	
+						if(result) {
+							System.out.println("[알림] : 로그인성공");
+							membermenu(name, phone);	
+						}
 				} else if (ch == 2) {
 					System.out.println("관리자코드를 입력하세요 : ");
-					String code = scanner.next();
-					boolean result = AdminController.login(code);
+					String Code = scanner.next();
+					boolean result = AdminController.login(Code);
 						if(result) { 
-							adminmenu(code);	
+							adminmenu();	
 						}
 						else { System.out.println("알수없는 입력입니다.");
 						}
@@ -55,8 +58,25 @@ public class Application {
 	}
 
 	// 관리자 메뉴
-	public static void adminmenu(String code) {
-
+	public static void adminmenu() {
+		while(true) {
+			System.out.println("================관리자메뉴===============");
+			System.out.println("1.잔여백신등록|2.잔여백신등록취소|3.잔여백신재고확인");
+			System.out.println("======================================");
+			System.out.print(">>선택 : "); int ch = scanner.nextInt();
+			if(ch==1) {
+				
+			}
+			else if(ch==2) {
+				
+			}
+			else if(ch==3) {
+				
+			}
+			else { System.out.println("[[알림]] : 잘못된입력입니다. [관리자에게문의]");
+					
+			}
+		}
 	}
 
 }

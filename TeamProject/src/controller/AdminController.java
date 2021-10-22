@@ -12,8 +12,12 @@ public class AdminController { // 혁
 	static ArrayList<Vaccine> vaccinList = new ArrayList<>();
 	
 	// 메소드
-	public static boolean login(String code) {
-		return true;
+	public static boolean login(String Code) {
+		if(Code.equals("12345")) {
+			System.out.println("반갑습니다. 관리자님");
+			return true; // 관리자로그인성공시
+		}
+		return false; // 관리자 로그인실패시
 	}
 	public static boolean register() {
 		return true;
