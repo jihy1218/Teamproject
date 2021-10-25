@@ -24,6 +24,7 @@ public class AdminController implements VeccineList { // 혁
       
       return true;
    }
+<<<<<<< HEAD
   @Override
 	public void List() {
 	  System.out.println("============잔여백신등록리스트=========");
@@ -35,6 +36,21 @@ public class AdminController implements VeccineList { // 혁
 			i++;
 		}
 	}
+=======
+   @Override
+	public void List() {
+        System.out.println("=============잔여백신리스트============");
+        System.out.println("\n번호\t백신이름\t지역\t남은수량");
+        int i = 1;
+        for(Vaccine vaccine : AdminController.vaccinList) {
+        	System.out.println(i+vaccine.getV_name()+vaccine.getV_area()+
+        			vaccine.getV_count());
+        	i++;
+        }
+		
+	}
+   
+>>>>>>> branch 'main' of https://github.com/jihy1218/Teamproject
    
    
    
