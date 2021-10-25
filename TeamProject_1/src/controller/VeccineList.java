@@ -3,8 +3,5 @@ package controller;
 public interface VeccineList {
 
 	
-	static void List() {
-		
-		return;
-	}
+	 void List();
 }
