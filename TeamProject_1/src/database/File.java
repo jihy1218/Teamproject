@@ -13,7 +13,8 @@ public class File {
 	
 //	필드 : filepath
 //	메소드 : save , load
-	private static String path ="";
+	private static String memberpath ="";
+	private static String vaccinepath ="";
 	
 	public static boolean filesave(int type) {
 									//1.비회원정보 2.백신정보
@@ -21,7 +22,7 @@ public class File {
 		FileOutputStream fileOutputStream = null;
 		if(type==1) {										
 		//1.파일객체에 경로 저장
-		fileOutputStream = new FileOutputStream(path);
+		fileOutputStream = new FileOutputStream(memberpath);
 		//반복문 이용 비회원에서 하나씩 회원 가져오기
 		for(Member member : MemberController.memberlist) {
 		//각 회원마다 이용한 회원리스트에서 하나씩 회원 가져오기
@@ -31,7 +32,7 @@ public class File {
 		}
 		if(type==2) {
 			//1.파일객체에 경로 저장
-			fileOutputStream = new FileOutputStream(path);
+			fileOutputStream = new FileOutputStream(vaccinepath);
 			//반복문 이용 비회원에서 하나씩 회원 가져오기
 			for(Vaccine vaccine : AdminController.vaccinList) {
 			//각 회원마다 이용한 회원리스트에서 하나씩 회원 가져오기
@@ -51,12 +52,20 @@ public class File {
 		FileInputStream fileInputStream = null;
 		if(type==1) {
 		
-		fileInputStream = new FileInputStream(path);
+		fileInputStream = new FileInputStream(memberpath);
 		
 		byte[] bytes = new byte[10000];
 		
 		String insString = new String(bytes);
-		String a;
+		
+		String[] members = insString.split("\n");
+		
+		for(int i = 0; i<members.length-1 ; i++) {
+			
+			String[] field = members[i].split(",");
+			
+			Member member = new Member
+		}
 		}
 		}catch (Exception e) {
 			System.out.println(" [알림] : 파일 불러오기 오류 발생 [ 관리자에게 문의 ]");

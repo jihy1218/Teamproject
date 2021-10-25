@@ -12,17 +12,10 @@ public class AdminController implements VeccineList { // 혁
 	public static ArrayList<Vaccine> vaccinList = new ArrayList<>();
 	
 	// 메소드
-	public static boolean login(String Code) {
-		if(Code.equals("12345")) {
-			System.out.println("반갑습니다. 관리자님");
-			return true; // 관리자로그인성공시
-		}
-		return false; // 관리자 로그인실패시
-	}
-
 	
 	
-	public static boolean register() {
+	public static boolean register(String name , String area) {
+		
 		return true;
 	}
 	public static boolean update() {
