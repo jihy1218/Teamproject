@@ -64,8 +64,28 @@ public class File {
 			
 			String[] field = members[i].split(",");
 			
-			Member member = new Member
+			Member member = new Member(field[0] , field[1] , field[2], 
+					field[3]  , field[4]);
+			MemberController.memberlist.add(member);
 		}
+		}
+		if(type==2) {
+			fileInputStream = new FileInputStream(vaccinepath);
+			
+			byte[] bytes = new byte[10000];
+			
+			String insString = new String(bytes);
+			
+			String[] vaccines = insString.split("\n");
+			
+			for(int i = 0; i<vaccines.length-1 ; i++) {
+				
+				String[] field = vaccines[i].split(",");
+				
+				Member vaccine = new Vaccine(field[0] , field[1] , field[2], 
+						field[3]  , field[4]);
+				AdminController.vaccinList.add(vaccine);
+			}
 		}
 		}catch (Exception e) {
 			System.out.println(" [알림] : 파일 불러오기 오류 발생 [ 관리자에게 문의 ]");
