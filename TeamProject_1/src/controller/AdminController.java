@@ -9,7 +9,7 @@ public class AdminController implements VeccineList { // 혁
 //	메소드 : login, register, update , v_list
 	//좋아요
 	// 필드
-	static ArrayList<Vaccine> vaccinList = new ArrayList<>();
+	public static ArrayList<Vaccine> vaccinList = new ArrayList<>();
 	
 	// 메소드
 	public static boolean login(String Code) {

@@ -72,24 +72,25 @@ public class Application {
 
 	// 관리자 메뉴
 	public static void adminmenu() {
-		while(true) {
-			System.out.println("================관리자메뉴===============");
-			System.out.println("1.잔여백신등록|2.잔여백신등록취소|3.잔여백신재고확인");
-			System.out.println("======================================");
-			System.out.print(">>선택 : "); int ch = scanner.nextInt();
-			if(ch==1) { // 등록
-				AdminController.register();
+		try {
+			while (true) {
+				System.out.println("================관리자메뉴===============");
+				System.out.println("1.잔여백신등록|2.잔여백신등록취소|3.잔여백신재고확인");
+				System.out.println("======================================");
+				System.out.print(">>선택 : ");
+				int ch = scanner.nextInt();
+				if (ch == 1) { // 등록
+					AdminController.register();
+				} else if (ch == 2) { // 등록취소
+					AdminController.update();
+				} else if (ch == 3) { // 등록 리스트 확인
+					AdminController.v_list();
+				} else {
+					System.out.println("[[알림]] : 잘못된입력입니다. [관리자에게문의]");
+				}
 			}
-			else if(ch==2) { // 등록취소
-				AdminController.update();
-			}
-			else if(ch==3) { // 등록 리스트 확인
-				AdminController.v_list();
-			}
-			else { System.out.println("[[알림]] : 잘못된입력입니다. [관리자에게문의]");
-					
-			}
+		}catch (Exception e) {
+			System.out.println();
 		}
 	}
-
 }
