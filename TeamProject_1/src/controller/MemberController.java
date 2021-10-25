@@ -25,7 +25,15 @@ public class MemberController { 	// µ¿Áø
 	}
 	
 	public static boolean cancel() {
+		for (int i = 0; i < memberlist.size(); i++) {
+			System.out.println(memberlist.get(i));
+				
+			
+			
+		}
+		
 		return true;
+		
 	}
 	
 	
