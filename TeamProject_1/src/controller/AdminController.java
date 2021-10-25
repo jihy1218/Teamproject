@@ -24,12 +24,17 @@ public class AdminController implements VeccineList { // 혁
       
       return true;
    }
-   @Override
-      public void List() {
-         // TODO Auto-generated method stub
-         
-      }
-   
+  @Override
+	public void List() {
+	  System.out.println("============잔여백신등록리스트=========");
+		System.out.println("\n번호\t백신이름\t지역\t남은수량");
+		int i = 1;
+		for(Vaccine vaccine : AdminController.vaccinList) {
+			System.out.println(i+"\t"+vaccine.getV_name()+"\t"+vaccine.getV_area()+
+								"\t"+vaccine.getV_count());
+			i++;
+		}
+	}
    
    
    

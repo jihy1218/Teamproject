@@ -17,7 +17,7 @@ public class MemberController implements VeccineList { 	// 동진
 		}else {
 		return "예약자";  }
 	}
-	public static boolean select() {
+	public static boolean select(int index) {
 		
 		return true;
 	}
