@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import model.Member;
 
-public class MemberController { 	// 동진
+public class MemberController implements VeccineList { 	// 동진
 // 	필드 : ArrayList<Member> memberlist
 //	메소드 : login , select , cancel , list(v_list로 대체)
 	// 필드
@@ -18,6 +18,7 @@ public class MemberController { 	// 동진
 		return "예약자";  }
 	}
 	public static boolean select() {
+		
 		return true;
 	}
 	public static boolean check() {

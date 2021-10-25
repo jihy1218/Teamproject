@@ -64,7 +64,8 @@ public class Application {
 				VeccineList.List();
 			}
 			else if(ch==2) { // 선택하기
-				System.out.println("");
+				System.out.println("================백신선택창================");
+				
 				MemberController.select();
 			}
 			else if(ch==3) { // 신청확인
@@ -87,7 +88,7 @@ public class Application {
 		try {
 			while (true) {
 				System.out.println("================관리자메뉴===============");
-				System.out.println("1.잔여백신등록|2.잔여백신등록취소|3.잔여백신재고확인");
+				System.out.println("1.잔여백신등록|2.잔여백신등록취소|3.잔여백신재고확인|4.뒤로가기");
 				System.out.println("======================================");
 				System.out.print(">>선택 : ");
 				int ch = scanner.nextInt();
@@ -111,9 +112,13 @@ public class Application {
 						System.out.println(i+"\t"+vaccine.getV_name()+"\t"+vaccine.getV_area()+
 											vaccine.getV_count());
 						i++;
-					}
-					AdminController.v_list();
-				} else {
+				}
+					
+				
+				}else if(ch==4) {
+					return;
+				}
+				else {
 					System.out.println("[[알림]] : 잘못된입력입니다. [관리자에게문의]");
 				}
 			}
