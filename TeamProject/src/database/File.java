@@ -13,8 +13,8 @@ public class File {
 	
 //	필드 : filepath
 //	메소드 : save , load
-	private static String memberpath ="C:/Users/505/eclipse-workspace/samp/src/database/member.txt";
-	private static String vaccinepath ="C:/Users/505/eclipse-workspace/samp/src/database/vaccine.txt";
+	private static String memberpath ="C:/Users/jihyeong kim/git/Teamproject/TeamProject/src/database/member.txt";
+	private static String vaccinepath ="C:/Users/jihyeong kim/git/Teamproject/TeamProject/src/database/vaccine.txt";
 	
 	public static boolean filesave(int type) {
 		// 1.비회원정보 2.백신정보
@@ -29,7 +29,11 @@ public class File {
 					String outstring = member.getName() + "," + member.getPhone() + "," + member.getVaccinename() + ","
 							+ member.getArea() + "\n";
 					//바이트로 내보내기
-					fileOutputStream.write(outstring.getBytes());
+					for(Member temp : MemberController.memberlist) {
+						if(!temp.getPhone().equals(member.getPhone())) {
+							fileOutputStream.write(outstring.getBytes());
+						}
+					}
 				}
 				//스트림 사용후 초기화
 				fileOutputStream.flush();
@@ -43,8 +47,7 @@ public class File {
 				// 반복문 이용 비회원에서 하나씩 회원 가져오기
 				for (Vaccine vaccine : AdminController.vaccinList) {
 					// 각 회원마다 이용한 회원리스트에서 하나씩 회원 가져오기
-					String outstring = vaccine.getV_name() + "," + vaccine.getV_area() + "," + vaccine.getV_count()
-							+ "\n";
+					String outstring = vaccine.getV_name() + "," + vaccine.getV_area() + "," + vaccine.getV_count()+ "\n";
 					fileOutputStream.write(outstring.getBytes());
 				}
 				fileOutputStream.flush();
@@ -80,7 +83,12 @@ public class File {
 					// 분리된 필드를 객채화 
 					Member member = new Member(field[0], field[1], field[2], field[3]);
 					// 각 객체를 리스트에 저장
-					MemberController.memberlist.add(member);
+					for(Member temp : MemberController.memberlist) {
+						if(!temp.getPhone().equals(member.getPhone())) {
+							MemberController.memberlist.add(member);
+						}
+					}
+					
 
 				}
 				fileInputStream.close(); //스트림 닫기
@@ -88,22 +96,20 @@ public class File {
 			}
 			if (type == 2) {
 				fileInputStream = new FileInputStream(vaccinepath);
-
 				byte[] bytes = new byte[10000];
-				
 				fileInputStream.read( bytes );
-
 				String insString = new String(bytes);
-
 				String[] vaccines = insString.split("\n");
-
 				for (int i = 0; i < vaccines.length - 1; i++) {
-
 					String[] field = vaccines[i].split(",");
-
 					Vaccine vaccine = new Vaccine(field[0], field[1], Integer.parseInt(field[2]));
-
-					AdminController.vaccinList.add(vaccine);
+					for(Vaccine temp : AdminController.vaccinList) {
+						if(!temp.getV_name().equals(vaccine.getV_name())
+								&&!temp.getV_area().equals(vaccine.getV_area())) {
+							AdminController.vaccinList.add(vaccine);
+						}
+					}
+					
 				}
 				fileInputStream.close();
 				return true;

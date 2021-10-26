@@ -15,7 +15,6 @@ public class MemberController implements VeccineList { 	// 동진
 	public static String m_login(String name , String phone) {
 		if(name.equals("admin")&& phone.equals("12345678910")) {
 			return "admin";
-			
 		}				
 			int p_len = phone.length();
 			if (p_len<11||p_len>11) {
@@ -29,7 +28,6 @@ public class MemberController implements VeccineList { 	// 동진
 			if(temp.getV_name().equals(v_name)&&temp.getV_area().equals(v_area)) {				
 				memberlist.add(new Member(name, phone, v_name, v_area));
 				temp.setV_count(temp.getV_count()-1);
-				File.filesave(1);
 				return true;
 			}
 		}
@@ -54,8 +52,7 @@ public class MemberController implements VeccineList { 	// 동진
 					if(vaccine.getV_name().equals(member.getVaccinename())) {
 						vaccine.setV_count(vaccine.getV_count()+1);
 						memberlist.remove(memberlist.indexOf(member));
-						File.filesave(1);
-						File.filesave(2);
+						
 						return true;
 					}
 				}

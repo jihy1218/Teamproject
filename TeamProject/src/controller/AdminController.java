@@ -25,7 +25,6 @@ public class AdminController implements VeccineList { // Çõ
 	    	  }
 	      }	   
 	      vaccinList.add(vaccineinformation);  
-	      File.filesave(2);
 	      return true;		   
 	   }
    
@@ -36,7 +35,7 @@ public class AdminController implements VeccineList { // Çõ
 			  return i;
 		  }
 	  }
-	  return -1;    
+	  return 1;    
    }
    
    public static void update(int index_num) {
@@ -45,14 +44,12 @@ public class AdminController implements VeccineList { // Çõ
 	   if(ch==1) {
 		   vaccinList.remove(index_num);
 		   System.out.println("»èÁ¦ ¿Ï·á");
-		   File.filesave(2);
 		   return;
 	   }
 	   if(ch==2) {
 		   System.out.println("Àç°í°ª: ");
 		   int edit = Application.scanner.nextInt();
 		   vaccinList.get(index_num).setV_count(edit);
-		   File.filesave(2);
 		   return;
 	   }
    }
