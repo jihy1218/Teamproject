@@ -13,8 +13,8 @@ public class File {
 	
 //	필드 : filepath
 //	메소드 : save , load
-	private static String memberpath ="";
-	private static String vaccinepath ="";
+	private static String memberpath ="D:/00lmw/sample/src/database/member.txt";
+	private static String vaccinepath ="D:/00lmw/sample/src/database/vaccine.txt";
 	
 	public static boolean filesave(int type) {
 		// 1.비회원정보 2.백신정보
