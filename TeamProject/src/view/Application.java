@@ -5,6 +5,7 @@ import java.util.Scanner;
 import controller.AdminController;
 import controller.MemberController;
 import controller.VeccineList;
+import database.File;
 import model.Vaccine;
 
 public class Application {
@@ -12,7 +13,8 @@ public class Application {
 	public static Scanner scanner = new Scanner(System.in); // 여기저기서 끌어다쓰기위해
 
 	public static void main(String[] args) { //
-
+		File.fileload(1);
+		File.fileload(2);
 		mainmenu(); // 메인 메뉴 메소드 호출
 	}
 
@@ -25,7 +27,7 @@ public class Application {
 				System.out.println("전화번호를 입력하세요 : ");
 				String phone = scanner.next();
 				String check = MemberController.m_login(name, phone);
-
+				
 				if (check.equals("예약자")) {
 					System.out.println("[알림] : 로그인성공");
 					membermenu(name, phone);
@@ -34,6 +36,10 @@ public class Application {
 					System.out.println("관리자");
 					adminmenu();
 				}
+				if (check.equals("실패")) {
+					System.out.println("실패");
+				}
+				
 
 			} catch (Exception e) {
 
@@ -53,7 +59,7 @@ public class Application {
 			int ch = scanner.nextInt();
 			if (ch == 1) { // 잔여백신확인 전체리스트가 나와야함 처음에는 비어있을수있음
 				System.out.println("============잔여백신리스트=========");
-				System.out.println("c\t남은수량");
+				System.out.println("번호\t백신이름\t지역\t남은수량");
 				int i = 1;
 				for (Vaccine vaccine : AdminController.vaccinList) {
 					System.out.println(i + "\t" + vaccine.getV_name() + "\t" + vaccine.getV_area() + "\t"
@@ -72,11 +78,17 @@ public class Application {
 					System.out.println("존재하지 않는 백신 또는 지역입니다");
 				}
 			} else if (ch == 3) { // 신청확인
-				System.out.println("번호\t백신이름\t지역");
-				
-				MemberController.check();
+				boolean m_check = MemberController.check(phone);
+				if(m_check==false) {
+					System.out.println("예약 x");
+				}
 			} else if (ch == 4) { // 신청취소
-				MemberController.cancel();
+				boolean m_cancel = MemberController.cancel(phone);
+				if(m_cancel) {
+					System.out.println("취소 되었습니다");
+				}else {
+					System.out.println("예약 x");
+				}
 			} else if (ch == 5) {
 				return;
 			} else {
@@ -90,7 +102,7 @@ public class Application {
 		try {
 			while (true) {
 				System.out.println("================관리자메뉴===============");
-				System.out.println("1.잔여백신등록|2.잔여백신등록취소|3.잔여백신재고확인|4.뒤로가기");
+				System.out.println("1.잔여백신등록|2.잔여백신수정|3.잔여백신재고확인|4.뒤로가기");
 				System.out.println("======================================");
 				System.out.print(">>선택 : ");
 				int ch = scanner.nextInt();
@@ -100,14 +112,23 @@ public class Application {
 					System.out.println("지역 : "); String area = scanner.next();
 					System.out.println("재고 : "); int count = scanner.nextInt();
 					Vaccine vaccineinformation = new Vaccine(name, area, count);
-					AdminController.register(vaccineinformation);
 					
-					System.out.println("잔여백신이 등록되었습니다.");
+					boolean regi = AdminController.register(vaccineinformation);
+					if(regi) {
+						System.out.println("잔여백신이 등록되었습니다.");
+					}else {
+						System.out.println("실패");
+					}
 				} else if (ch == 2) { // 등록취소
-					System.out.println("============잔여백신 등록취소=============");
-					System.out.println("등록취소할 백신 번호 : "); int index = scanner.nextInt();
-					AdminController.update(index-1);
-					System.out.println("취소되었습니다.");
+					System.out.println("============잔여백신 수정=============");
+					System.out.println("수정할 백신명:"); String v_name = scanner.next();
+					System.out.println("수정할 백신 지역: "); String v_area = scanner.next();
+					int check = AdminController.check(v_name, v_area);
+					if(check==-1) {
+						System.out.println("존재X");
+					}else {
+						AdminController.update(check);
+					}
 				} else if (ch == 3) { // 등록 리스트 확인
 					AdminController adminController = new AdminController();
 					adminController.List();

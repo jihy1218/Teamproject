@@ -2,6 +2,7 @@ package controller;
 
 import java.util.ArrayList;
 
+import database.File;
 import model.Member;
 import model.Vaccine;
 
@@ -15,31 +16,52 @@ public class MemberController implements VeccineList { 	// 동진
 		if(name.equals("admin")&& phone.equals("12345678910")) {
 			return "admin";
 			
-		}else {
+		}				
+			int p_len = phone.length();
+			if (p_len<11||p_len>11) {
+				
+				return "실패";
+			}
 		return "예약자";  }
-	}
-	public static boolean select(String name, String phone , String v_name, String v_area) {
+	
+	public static boolean select(String name, String phone,String v_name, String v_area) {
 		for(Vaccine temp : AdminController.vaccinList) {
 			if(temp.getV_name().equals(v_name)&&temp.getV_area().equals(v_area)) {				
 				memberlist.add(new Member(name, phone, v_name, v_area));
 				temp.setV_count(temp.getV_count()-1);
+				File.filesave(1);
+				return true;
+			}
+		}
+		
+		
+		return false;
+	}
+	public static boolean check(String phone) {
+		for(Member temp : memberlist) {
+			if(temp.getPhone().equals(phone)) {
+				System.out.println("예약자: "+temp.getName()+"\t백신명: "+temp.getVaccinename()+"\t지역: "+temp.getArea());
 				return true;
 			}
 		}
 		return false;
 	}
-	public static boolean check() {
-		
-		return true;
-	}
 	
-	public static boolean cancel() {
-		for (int i = 0; i < memberlist.size(); i++) {
-					
-			
-			
-		}		
-		return true;	
+	public static boolean cancel(String phone) {
+		for(Member member : memberlist) {
+			if(member.getPhone().equals(phone)) {
+				for(Vaccine vaccine : AdminController.vaccinList) {
+					if(vaccine.getV_name().equals(member.getVaccinename())) {
+						vaccine.setV_count(vaccine.getV_count()+1);
+						memberlist.remove(memberlist.indexOf(member));
+						File.filesave(1);
+						File.filesave(2);
+						return true;
+					}
+				}
+			}
+		}
+		return false;	
 	}
 	@Override
 		public void List() {

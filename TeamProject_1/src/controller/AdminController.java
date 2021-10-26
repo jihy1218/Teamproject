@@ -14,9 +14,11 @@ public class AdminController implements VeccineList { // Çõ
    // ¸Þ¼Òµå
    
    
-   public static boolean register(Vaccine vaccineinformation) {
-      vaccinList.add(vaccineinformation);
-      
+   public static boolean register(String v_name , String v_area ,int v_count) {
+      for(Vaccine temp : AdminController.vaccinList) {
+   
+   	   
+      }	   
       return true;
    }
    public static boolean update(int indexnum) {
