@@ -1,11 +1,11 @@
 # Teamproject
 
 ## 주제
-### 코로나 잔여 백신 예약 프로그램
+>코로나 잔여 백신 예약 프로그램
 ## 목적
-코로나 잔여 백신 신청 및 조회를 보다 쉽게 도와주는 프로그램
+>코로나 잔여 백신 신청 및 조회를 보다 쉽게 도와주는 프로그램
 ## 환경
-jdk11, Eclipse, Windows10, git
+>jdk11, Eclipse, Windows10, git
 
 ## 서비스설계
 ![image](https://user-images.githubusercontent.com/91596526/139001886-c54f5e2b-aafd-4aaf-bb33-87577793f56c.png)
