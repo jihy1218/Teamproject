@@ -11,10 +11,15 @@
 ![image](https://user-images.githubusercontent.com/91596526/139001886-c54f5e2b-aafd-4aaf-bb33-87577793f56c.png)
 
 ## 프로젝트 기간
-### ~10/27
+> ~10/27
 
 ## 역할분담
-![image](https://user-images.githubusercontent.com/91596526/139023241-f66e0c1b-12a7-4b80-b204-bfb3962732ae.png)
+> +Application , File 작성 : 김지형
+> +MemberController , 파일스레드 작성 : 이민욱
+> +AdminController 작성 및 발표 : 오동진
+
+## 주요기능
+> 
 
 ![image](https://user-images.githubusercontent.com/91596526/139072617-9d7db8b5-9b31-4007-8785-8853d68714a4.png)
 
