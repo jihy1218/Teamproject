@@ -14,9 +14,9 @@
 > ~10/27
 
 ## 역할분담
-> +Application , File 작성 : 김지형
-> +MemberController , 파일스레드 작성 : 이민욱
-> +AdminController 작성 및 발표 : 오동진
+> + Application , File 작성 : 김지형
+ + MemberController , 파일스레드 작성 : 이민욱
+ + AdminController 작성 및 발표 : 오동진
 
 ## 주요기능
 > 
