@@ -24,6 +24,11 @@
 
 ## PPT
 ![image](https://user-images.githubusercontent.com/91596526/139072617-9d7db8b5-9b31-4007-8785-8853d68714a4.png)
+![image](https://user-images.githubusercontent.com/91596526/139078406-8ea02f38-e0e0-475d-b0bb-f8a829100e01.png)
+![image](https://user-images.githubusercontent.com/91596526/139078452-c3dbfc04-0ec9-48b0-8668-228fb62f4011.png)
+![image](https://user-images.githubusercontent.com/91596526/139078489-1b9190e9-0b3b-40a0-b885-9905a09e69bc.png)
+![image](https://user-images.githubusercontent.com/91596526/139078556-d14e4368-dc3b-444d-9159-144a98520708.png)
+
 
 ![image](https://user-images.githubusercontent.com/91596526/138246435-1d2c9379-4538-4d16-b79a-5547eb969a06.png)
 
