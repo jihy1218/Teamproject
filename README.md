@@ -5,6 +5,8 @@
 
 ![image](https://user-images.githubusercontent.com/91596526/138248008-df6503e8-52fc-4355-8f12-83579e566550.png)
 
+![image](https://user-images.githubusercontent.com/91596526/139001886-c54f5e2b-aafd-4aaf-bb33-87577793f56c.png)
+
 ## 프로젝트 기간
 ### ~10/27
 
